@@ -1,11 +1,53 @@
 .header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  font-size: 22px;
+  width: 90%;
+  margin: 0 auto;
 }
 
-.title {
+.wrapper {
+  display: grid;
+  grid-template-areas:
+    "title sign-in"
+    "search-field search-field";
+  grid-template-columns: 2fr 1fr;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.signIn {
+  grid-area: sign-in;
+  text-align: right;
+  padding: 10px;
+  border-bottom: 2px solid;
+}
+
+.searchField {
+  grid-area: search-field;
+  text-align: center;
+}
+
+.titleContainer {
+  grid-area: title;
+  padding: 10px;
+  border-bottom: 2px solid;
+  text-align: center;
   font-size: 1.5em;
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    grid-template-areas: "title search-field sign-in";
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 5px;
+    font-size: 16px;
+  }
+
+  .signIn,
+  .titleContainer {
+    border-bottom: none;
+    align-self: end;
+  }
+
+  .header {
+    border-bottom: 2px solid;
+  }
 }

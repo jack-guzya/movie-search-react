@@ -1,7 +1,7 @@
 import React, { useState, Dispatch, SetStateAction } from 'react';
 // Material UI
 import { Button, Menu, MenuItem } from '@material-ui/core';
-import { AccountCircle, Menu as MenuIcon } from '@material-ui/icons';
+import { AccountCircle } from '@material-ui/icons';
 // Styles
 import s from './User.module.css';
 
@@ -27,11 +27,10 @@ const User: React.FC<TUserProps> = ({ userName, setUserName }) => {
   };
 
   return (
-    <>
-      <AccountCircle />
-      <h2 className={s.userName}>{userName}</h2>
+    <div className={s.userContainer}>
       <Button aria-controls="user-menu" aria-haspopup="true" onClick={handleMenuOpen}>
-        <MenuIcon />
+        <AccountCircle className={s.icon} />
+        <h2 className={s.userName}>{userName}</h2>
       </Button>
       <Menu
         id="user-menu"
@@ -43,7 +42,7 @@ const User: React.FC<TUserProps> = ({ userName, setUserName }) => {
         <MenuItem onClick={handleMenuClose}>My account</MenuItem>
         <MenuItem onClick={handleLogOut}>Logout</MenuItem>
       </Menu>
-    </>
+    </div>
   );
 };
 

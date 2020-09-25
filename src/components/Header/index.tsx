@@ -8,9 +8,19 @@ import s from './Header.module.css';
 const Header = () => {
   return (
     <header className={s.header}>
-      <h1 className={s.title}>Movie Catalog</h1>
-      <SingIn />
-      <TextField label="Movie name" />
+      <div className={s.wrapper}>
+        <div className={s.titleContainer}>
+          <h1>Movie Catalog</h1>
+        </div>
+
+        <div className={s.signIn}>
+          <SingIn />
+        </div>
+        
+        <div className={s.searchField}>
+          <TextField label="Movie name" />
+        </div>
+      </div>
     </header>
   );
 };
