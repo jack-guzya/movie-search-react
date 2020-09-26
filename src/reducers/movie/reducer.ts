@@ -2,9 +2,11 @@ import * as types from './types';
 
 const initialState: types.TState = {
   serviceStatus: true,
+  errorMessage: null,
   pages: null,
   currentPage: null,
   movies: null,
+  isLoading: false,
 };
 
 const reducer = (state = initialState, action: types.TAction): types.TState => {
@@ -19,6 +21,21 @@ const reducer = (state = initialState, action: types.TAction): types.TState => {
       return {
         ...state,
         serviceStatus: action.payload.serviceStatus,
+        isLoading: false,
+      };
+
+    case types.SET_ERROR_MESSAGE:
+      return {
+        ...state,
+        errorMessage: action.payload.message,
+        isLoading: false,
+      };
+
+    case types.SET_LOADING_STATUS:
+      return {
+        ...state,
+        isLoading: action.payload.status,
+        serviceStatus: true
       };
 
     default:

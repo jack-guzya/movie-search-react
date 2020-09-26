@@ -1,15 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { TextField } from '@material-ui/core';
+import { useDispatch } from 'react-redux';
+import debounce from 'lodash.debounce';
+import * as movieReducer from '../../reducers/movie';
 // Components
 import SingIn from './SignIn';
 // Styles
 import s from './Header.module.css';
 
 const Header = () => {
-  const [movieName, setMovieName] = useState('batman');
+  const dispatch = useDispatch();
+  const debouncedDispatch = debounce(
+    (currentName) => dispatch(movieReducer.operations.searchMovie(currentName)),
+    2000
+  );
 
   const handleSearch = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setMovieName(e.currentTarget.value);
+    const movieName = e.currentTarget.value;
+    debouncedDispatch(movieName);
   };
 
   return (
@@ -24,7 +32,7 @@ const Header = () => {
         </div>
 
         <div className={s.searchField}>
-          <TextField label="Movie name" onChange={handleSearch} value={movieName} />
+          <TextField label="Movie name" onChange={handleSearch} />
         </div>
       </div>
     </header>

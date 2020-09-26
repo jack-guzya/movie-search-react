@@ -8,8 +8,8 @@ const rootReducer = combineReducers({
 
 type TAppStateType = ReturnType<typeof rootReducer>;
 
-export type TThunk<Args = null, P = {}> = (
+export type TThunk<Args = null> = (
   args: Args
-) => (dispatch: Dispatch, getState: () => TAppStateType) => Promise<P>;
+) => (dispatch: Dispatch, getState: () => TAppStateType) => void;
 
 export default rootReducer;

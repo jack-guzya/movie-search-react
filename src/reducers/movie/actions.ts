@@ -11,3 +11,17 @@ export const setServiceStatus = (status: boolean): types.TAction => ({
     serviceStatus: status,
   },
 });
+
+export const setErrorMessage = (message: string): types.TAction => ({
+  type: types.SET_ERROR_MESSAGE,
+  payload: {
+    message,
+  },
+});
+
+export const setLoadingStatus = (status: boolean): types.TAction => ({
+  type: types.SET_LOADING_STATUS,
+  payload: {
+    status,
+  },
+});

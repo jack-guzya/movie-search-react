@@ -8,10 +8,10 @@ type TMovie = {
 
 type TResponse = {
   status: number;
-  message?: string;
-  data?: {
+  data: {
     Search: Array<TMovie>;
     totalResults: string;
+    Error?: string;
   };
 };
 
@@ -31,7 +31,7 @@ class OmdbApiService {
     if (request.status !== 200) {
       return {
         status: request.status,
-        message: `request to ${request.url} failed! (status: ${request.status})`,
+        data: { Error: `request to ${request.url} failed! (status: ${request.status})` },
       };
     }
     const response = await request.json();
