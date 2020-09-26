@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TextField } from '@material-ui/core';
 // Components
 import SingIn from './SignIn';
@@ -6,6 +6,12 @@ import SingIn from './SignIn';
 import s from './Header.module.css';
 
 const Header = () => {
+  const [movieName, setMovieName] = useState('batman');
+
+  const handleSearch = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setMovieName(e.currentTarget.value);
+  };
+
   return (
     <header className={s.header}>
       <div className={s.wrapper}>
@@ -16,9 +22,9 @@ const Header = () => {
         <div className={s.signIn}>
           <SingIn />
         </div>
-        
+
         <div className={s.searchField}>
-          <TextField label="Movie name" />
+          <TextField label="Movie name" onChange={handleSearch} value={movieName} />
         </div>
       </div>
     </header>

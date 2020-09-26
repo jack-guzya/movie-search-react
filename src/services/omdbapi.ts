@@ -1,4 +1,21 @@
-type TGetData = (input: string, page: number) => Promise<unknown>;
+type TMovie = {
+  Poster: string;
+  Title: string;
+  Type: string;
+  Year: string;
+  imdbID: string;
+};
+
+type TResponse = {
+  status: number;
+  message?: string;
+  data?: {
+    Search: Array<TMovie>;
+    totalResults: string;
+  };
+};
+
+type TGetData = (input: string, page: number) => Promise<TResponse>;
 
 type TGetImdb = (id: string) => Promise<unknown>;
 
