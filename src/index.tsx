@@ -23,4 +23,4 @@ serviceWorker.unregister();
 
 // const api = new Api();
 
-// api.getData('batman', 1).then((res) => console.log(res))
+// api.getImdb('tt2975590').then((res) => console.log(res))

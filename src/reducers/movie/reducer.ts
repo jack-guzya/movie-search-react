@@ -3,6 +3,7 @@ import * as types from './types';
 const initialState: types.TState = {
   serviceStatus: true,
   errorMessage: null,
+  name: null,
   pages: null,
   currentPage: null,
   movies: null,

@@ -12,6 +12,7 @@ export type TMovie = {
 };
 
 export type TSearchMovieData = {
+  name: null | string;
   pages: null | number;
   currentPage: null | number;
   movies: null | Array<TMovie>;

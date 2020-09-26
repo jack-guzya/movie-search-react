@@ -6,18 +6,42 @@ type TMovie = {
   imdbID: string;
 };
 
-type TResponse = {
+type TError = {
+  Error?: string;
+};
+
+export type TResponse<T> = {
   status: number;
-  data: {
-    Search: Array<TMovie>;
-    totalResults: string;
-    Error?: string;
+  data: TError & {
+    [K in keyof T]: T[K];
   };
 };
 
-type TGetData = (input: string, page: number) => Promise<TResponse>;
+export type TDataResponse =  {
+  Search: Array<TMovie>;
+  totalResults: string;
+};
 
-type TGetImdb = (id: string) => Promise<unknown>;
+export type TDetailsResponse = {
+  Actors: string;
+  BoxOffice: string;
+  Country: string;
+  Director: string;
+  Genre: string;
+  Plot: string;
+  Poster: string;
+  Rated: string;
+  Title: string;
+  Type: string;
+  Year: string;
+  imdbRating: string;
+};
+
+// export type TResponse = TDataResponse | TDetailsResponse;
+
+type TGetData = (input: string, page: number) => Promise<TResponse<TDataResponse>>;
+
+type TGetMovieDetails = (id: string) => Promise<TResponse<TDetailsResponse>>;
 
 class OmdbApiService {
   constructor(private root = 'https://www.omdbapi.com/', private key = '89ce318c') {
@@ -41,7 +65,7 @@ class OmdbApiService {
 
   getData: TGetData = async (input, page) => this.createRequest(`?s=${input}&page=${page}`);
 
-  getImdb: TGetImdb = async (id) => this.createRequest(`?i=${id}`);
+  getImdb: TGetMovieDetails = async (id) => this.createRequest(`?i=${id}`);
 }
 
 export default OmdbApiService;
