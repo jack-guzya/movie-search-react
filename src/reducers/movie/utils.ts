@@ -11,6 +11,7 @@ export const handleRequest = async <R>(
   request: () => Promise<TResponse<R>>
 ): Promise<R | undefined> => {
   try {
+    dispatch(actions.setLoadingStatus(true));
     const res = await request();
 
     if (res.data.Error) {

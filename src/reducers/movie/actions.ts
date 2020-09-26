@@ -1,7 +1,12 @@
 import * as types from './types';
 
-export const setSearchMovieData = (data: types.TSearchMovieData): types.TAction => ({
+export const setSearchMovieData = (data: types.TSearchData): types.TAction => ({
   type: types.SET_SEARCH_MOVIE_DATA,
+  payload: data,
+});
+
+export const setDataOfPage = (data: types.TPageData): types.TAction => ({
+  type: types.SET_DATA_OF_PAGE,
   payload: data,
 });
 

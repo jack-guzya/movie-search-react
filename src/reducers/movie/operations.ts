@@ -9,10 +9,7 @@ import { TThunk } from '..';
 const api = new Api();
 
 export const searchMovie: TThunk<string> = (movieName) => async (dispatch, getState) => {
-  dispatch(actions.setLoadingStatus(true));
-
-  const FIRST_PAGE = 1;
-  const movieData = await utils.handleRequest(dispatch, () => api.getData(movieName, FIRST_PAGE));
+  const movieData = await utils.handleRequest(dispatch, () => api.getData(movieName));
   if (!movieData) {
     return;
   }
@@ -21,8 +18,26 @@ export const searchMovie: TThunk<string> = (movieName) => async (dispatch, getSt
   dispatch(
     actions.setSearchMovieData({
       name: movieName,
-      currentPage: FIRST_PAGE,
       pages: utils.getPages(+totalResults),
+      movies: Search,
+    })
+  );
+};
+
+export const selectPage: TThunk<number> = (page) => async (dispatch, getState) => {
+  const { movie } = getState();
+
+  const movieData = await utils.handleRequest(dispatch, () =>
+    api.getData(movie.name as string, page)
+  );
+  if (!movieData) {
+    return;
+  }
+
+  const { Search } = movieData;
+  dispatch(
+    actions.setDataOfPage({
+      page,
       movies: Search,
     })
   );

@@ -1,4 +1,5 @@
 export const SET_SEARCH_MOVIE_DATA = 'SET_SEARCH_MOVIE_DATA';
+export const SET_DATA_OF_PAGE = 'SET_DATA_OF_PAGE';
 export const SET_SERVICE_STATUS = 'SET_SERVICE_STATUS';
 export const SET_ERROR_MESSAGE = 'SET_ERROR_MESSAGE';
 export const SET_LOADING_STATUS = 'SET_LOADING_STATUS';
@@ -11,22 +12,35 @@ export type TMovie = {
   imdbID: string;
 };
 
-export type TSearchMovieData = {
-  name: null | string;
-  pages: null | number;
-  currentPage: null | number;
-  movies: null | Array<TMovie>;
-};
-
-export type TState = TSearchMovieData & {
+export type TState = {
   serviceStatus: boolean;
   errorMessage: string | null;
   isLoading: boolean;
+  currentPage: null | number;
+  name: null | string;
+  pages: null | number;
+  movies: null | Array<TMovie>;
+};
+
+export type TSearchData = {
+  name: string;
+  pages: number;
+  movies: Array<TMovie>;
+};
+
+export type TPageData = {
+  movies: Array<TMovie>;
+  page: number;
 };
 
 type TSetSearchMovieData = {
   type: typeof SET_SEARCH_MOVIE_DATA;
-  payload: TSearchMovieData;
+  payload: TSearchData;
+};
+
+type TSetDataOfPage = {
+  type: typeof SET_DATA_OF_PAGE;
+  payload: TPageData;
 };
 
 type TSetServiceStatus = {
@@ -54,4 +68,5 @@ export type TAction =
   | TSetSearchMovieData
   | TSetServiceStatus
   | TSetErrorMessage
-  | TSetLoadingStatus;
+  | TSetLoadingStatus
+  | TSetDataOfPage;

@@ -17,7 +17,7 @@ export type TResponse<T> = {
   };
 };
 
-export type TDataResponse =  {
+export type TDataResponse = {
   Search: Array<TMovie>;
   totalResults: string;
 };
@@ -39,7 +39,7 @@ export type TDetailsResponse = {
 
 // export type TResponse = TDataResponse | TDetailsResponse;
 
-type TGetData = (input: string, page: number) => Promise<TResponse<TDataResponse>>;
+type TGetData = (input: string, page?: number) => Promise<TResponse<TDataResponse>>;
 
 type TGetMovieDetails = (id: string) => Promise<TResponse<TDetailsResponse>>;
 
@@ -63,7 +63,7 @@ class OmdbApiService {
     return { status: request.status, data: response };
   };
 
-  getData: TGetData = async (input, page) => this.createRequest(`?s=${input}&page=${page}`);
+  getData: TGetData = async (input, page = 1) => this.createRequest(`?s=${input}&page=${page}`);
 
   getImdb: TGetMovieDetails = async (id) => this.createRequest(`?i=${id}`);
 }

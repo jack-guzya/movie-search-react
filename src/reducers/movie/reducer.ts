@@ -16,6 +16,16 @@ const reducer = (state = initialState, action: types.TAction): types.TState => {
       return {
         ...state,
         ...action.payload,
+        currentPage: 1,
+        isLoading: false,
+      };
+
+    case types.SET_DATA_OF_PAGE:
+      return {
+        ...state,
+        movies: action.payload.movies,
+        currentPage: action.payload.page,
+        isLoading: false,
       };
 
     case types.SET_SERVICE_STATUS:
@@ -36,7 +46,8 @@ const reducer = (state = initialState, action: types.TAction): types.TState => {
       return {
         ...state,
         isLoading: action.payload.status,
-        serviceStatus: true
+        errorMessage: null,
+        serviceStatus: true,
       };
 
     default:
