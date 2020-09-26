@@ -6,7 +6,7 @@ const rootReducer = combineReducers({
   movie,
 });
 
-type TAppStateType = ReturnType<typeof rootReducer>;
+export type TAppStateType = ReturnType<typeof rootReducer>;
 
 export type TThunk<Args = null> = (
   args: Args

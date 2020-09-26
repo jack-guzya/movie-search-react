@@ -17,8 +17,8 @@ export const setServiceStatus = (status: boolean): types.TAction => ({
   },
 });
 
-export const setErrorMessage = (message: string): types.TAction => ({
-  type: types.SET_ERROR_MESSAGE,
+export const setMessage = (message: string): types.TAction => ({
+  type: types.SET_MESSAGE,
   payload: {
     message,
   },

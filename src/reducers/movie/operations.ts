@@ -9,6 +9,11 @@ import { TThunk } from '..';
 const api = new Api();
 
 export const searchMovie: TThunk<string> = (movieName) => async (dispatch, getState) => {
+  if (!movieName) {
+    dispatch(actions.setMessage('Enter a title of a movie'));
+    return;
+  }
+
   const movieData = await utils.handleRequest(dispatch, () => api.getData(movieName));
   if (!movieData) {
     return;
@@ -20,6 +25,7 @@ export const searchMovie: TThunk<string> = (movieName) => async (dispatch, getSt
       name: movieName,
       pages: utils.getPages(+totalResults),
       movies: Search,
+      message: `Your searched for: ${movieName}, ${totalResults} results found`,
     })
   );
 };

@@ -1,7 +1,7 @@
 export const SET_SEARCH_MOVIE_DATA = 'SET_SEARCH_MOVIE_DATA';
 export const SET_DATA_OF_PAGE = 'SET_DATA_OF_PAGE';
 export const SET_SERVICE_STATUS = 'SET_SERVICE_STATUS';
-export const SET_ERROR_MESSAGE = 'SET_ERROR_MESSAGE';
+export const SET_MESSAGE = 'SET_MESSAGE';
 export const SET_LOADING_STATUS = 'SET_LOADING_STATUS';
 
 export type TMovie = {
@@ -14,7 +14,7 @@ export type TMovie = {
 
 export type TState = {
   serviceStatus: boolean;
-  errorMessage: string | null;
+  message: string | null;
   isLoading: boolean;
   currentPage: null | number;
   name: null | string;
@@ -26,6 +26,7 @@ export type TSearchData = {
   name: string;
   pages: number;
   movies: Array<TMovie>;
+  message: string
 };
 
 export type TPageData = {
@@ -51,7 +52,7 @@ type TSetServiceStatus = {
 };
 
 type TSetErrorMessage = {
-  type: typeof SET_ERROR_MESSAGE;
+  type: typeof SET_MESSAGE;
   payload: {
     message: string | null;
   };

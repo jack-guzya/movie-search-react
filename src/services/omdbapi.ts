@@ -55,7 +55,9 @@ class OmdbApiService {
     if (request.status !== 200) {
       return {
         status: request.status,
-        data: { Error: `request to ${request.url} failed! (status: ${request.status})` },
+        data: {
+          Error: `request to ${request.url} failed! (status: ${request.status})`,
+        },
       };
     }
     const response = await request.json();

@@ -2,7 +2,7 @@ import * as types from './types';
 
 const initialState: types.TState = {
   serviceStatus: true,
-  errorMessage: null,
+  message: null,
   name: null,
   pages: null,
   currentPage: null,
@@ -33,12 +33,13 @@ const reducer = (state = initialState, action: types.TAction): types.TState => {
         ...state,
         serviceStatus: action.payload.serviceStatus,
         isLoading: false,
+        message: 'Oops! The server is a little tired. Please try again later!',
       };
 
-    case types.SET_ERROR_MESSAGE:
+    case types.SET_MESSAGE:
       return {
         ...state,
-        errorMessage: action.payload.message,
+        message: action.payload.message,
         isLoading: false,
       };
 
@@ -46,7 +47,7 @@ const reducer = (state = initialState, action: types.TAction): types.TState => {
       return {
         ...state,
         isLoading: action.payload.status,
-        errorMessage: null,
+        message: null,
         serviceStatus: true,
       };
 
