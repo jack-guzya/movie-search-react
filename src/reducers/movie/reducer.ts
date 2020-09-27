@@ -47,7 +47,6 @@ const reducer = (state = initialState, action: types.TAction): types.TState => {
       return {
         ...state,
         isLoading: action.payload.status,
-        message: null,
         serviceStatus: true,
       };
 

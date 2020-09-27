@@ -1,13 +1,8 @@
-.header {
-  width: 90%;
-  margin: 0 auto;
-}
-
 .wrapper {
   display: grid;
   grid-template-areas:
-    "title sign-in"
-    "search-field search-field";
+    'title sign-in'
+    'search-field search-field';
   grid-template-columns: 2fr 1fr;
   padding: 5px;
   font-size: 16px;
@@ -35,8 +30,9 @@
 
 @media screen and (min-width: 768px) {
   .wrapper {
-    grid-template-areas: "title search-field sign-in";
+    grid-template-areas: 'title search-field sign-in';
     grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 2px solid;
     padding: 5px;
     font-size: 16px;
   }
@@ -45,9 +41,5 @@
   .titleContainer {
     border-bottom: none;
     align-self: end;
-  }
-
-  .header {
-    border-bottom: 2px solid;
   }
 }
