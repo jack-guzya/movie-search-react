@@ -4,8 +4,9 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
+// Components
+import Poster from '../Poster';
 // Style
 import s from './Card.module.css';
 
@@ -21,7 +22,7 @@ const MovieCard: React.FC<TProps> = ({ title, year, imdb, type, media }) => {
   return (
     <Card className={s.card} variant="outlined">
       <CardActionArea>
-        <CardMedia className={s.media} image={media} title={title} />
+        <Poster url={media} title={title} />
         <CardContent>
           <h2 className={s.title}>{title}</h2>
           <h3>

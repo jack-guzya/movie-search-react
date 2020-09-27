@@ -1,0 +1,23 @@
+.poster {
+  overflow: hidden;
+  text-align: center;
+  height: 450px;
+  border-bottom: 1px solid #858585;
+}
+
+.placeholder {
+  background-image: url(./no_poster.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-x: center;
+  background-position-y: center;
+}
+
+.media {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  margin-right: -50%;
+}
