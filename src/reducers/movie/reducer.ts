@@ -8,6 +8,7 @@ const initialState: types.TState = {
   currentPage: null,
   movies: null,
   isLoading: false,
+  isSearchError: false,
 };
 
 const reducer = (state = initialState, action: types.TAction): types.TState => {
@@ -18,6 +19,7 @@ const reducer = (state = initialState, action: types.TAction): types.TState => {
         ...action.payload,
         currentPage: 1,
         isLoading: false,
+        isSearchError: false,
       };
 
     case types.SET_DATA_OF_PAGE:
@@ -33,6 +35,7 @@ const reducer = (state = initialState, action: types.TAction): types.TState => {
         ...state,
         serviceStatus: action.payload.serviceStatus,
         isLoading: false,
+        isSearchError: true,
         message: 'Oops! The server is a little tired. Please try again later!',
       };
 
@@ -41,6 +44,7 @@ const reducer = (state = initialState, action: types.TAction): types.TState => {
         ...state,
         message: action.payload.message,
         isLoading: false,
+        isSearchError: action.payload.isErrorSearch
       };
 
     case types.SET_LOADING_STATUS:

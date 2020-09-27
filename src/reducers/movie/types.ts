@@ -16,6 +16,7 @@ export type TState = {
   serviceStatus: boolean;
   message: string | null;
   isLoading: boolean;
+  isSearchError: boolean;
   currentPage: null | number;
   name: null | string;
   pages: null | number;
@@ -26,12 +27,17 @@ export type TSearchData = {
   name: string;
   pages: number;
   movies: Array<TMovie>;
-  message: string
+  message: string;
 };
 
 export type TPageData = {
   movies: Array<TMovie>;
   page: number;
+};
+
+export type TMessage = {
+  message: string | null;
+  isErrorSearch: boolean;
 };
 
 type TSetSearchMovieData = {
@@ -51,11 +57,9 @@ type TSetServiceStatus = {
   };
 };
 
-type TSetErrorMessage = {
+type TSetMessage = {
   type: typeof SET_MESSAGE;
-  payload: {
-    message: string | null;
-  };
+  payload: TMessage;
 };
 
 type TSetLoadingStatus = {
@@ -68,6 +72,6 @@ type TSetLoadingStatus = {
 export type TAction =
   | TSetSearchMovieData
   | TSetServiceStatus
-  | TSetErrorMessage
+  | TSetMessage
   | TSetLoadingStatus
   | TSetDataOfPage;

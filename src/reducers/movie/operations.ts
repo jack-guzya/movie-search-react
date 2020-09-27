@@ -10,7 +10,7 @@ const api = new Api();
 
 export const searchMovie: TThunk<string> = (movieName) => async (dispatch, getState) => {
   if (!movieName) {
-    dispatch(actions.setMessage('Enter a title of a movie'));
+    dispatch(actions.setMessage({ message: 'Enter a title of a movie', isErrorSearch: true }));
     return;
   }
 

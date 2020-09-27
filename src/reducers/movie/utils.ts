@@ -15,7 +15,7 @@ export const handleRequest = async <R>(
     const res = await request();
 
     if (res.data.Error) {
-      dispatch(actions.setMessage(res.data.Error));
+      dispatch(actions.setMessage({ message: res.data.Error, isErrorSearch: true }));
       return;
     }
 

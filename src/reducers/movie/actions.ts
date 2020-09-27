@@ -17,10 +17,11 @@ export const setServiceStatus = (status: boolean): types.TAction => ({
   },
 });
 
-export const setMessage = (message: string): types.TAction => ({
+export const setMessage = ({ message, isErrorSearch = false }: types.TMessage): types.TAction => ({
   type: types.SET_MESSAGE,
   payload: {
     message,
+    isErrorSearch,
   },
 });
 
