@@ -13,14 +13,17 @@ import s from './SearchInfo.module.css';
 const SearchInfo = () => {
   const message = useSelector(selectors.getMessage);
   const error = useSelector(selectors.getErrorSearchStatus);
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
 
-  useEffect(() => setOpen(true), [message]);
+  useEffect(() => {
+    if (message) {
+      setOpen(true);
+    }
+  }, [message]);
 
   return (
     <Collapse className={s.searchInfo} in={open}>
       <Alert
-        variant="outlined"
         severity={error ? 'error' : 'success'}
         action={
           <IconButton

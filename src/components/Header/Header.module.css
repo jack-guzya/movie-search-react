@@ -17,15 +17,29 @@
 
 .searchField {
   grid-area: search-field;
+  align-self: center;
+  margin-top: 10px;
   text-align: center;
 }
 
 .titleContainer {
   grid-area: title;
+  display: flex;
+  align-items: center;
   padding: 10px;
   border-bottom: 2px solid;
   text-align: center;
   font-size: 1.5em;
+}
+
+.logo {
+  margin-right: 10px;
+  width: 25px;
+  height: 25px;
+  background-image: url(./logo.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 @media screen and (min-width: 768px) {
@@ -40,6 +54,6 @@
   .signIn,
   .titleContainer {
     border-bottom: none;
-    align-self: end;
+    align-self: center;
   }
 }

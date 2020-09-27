@@ -22,13 +22,18 @@ const Paginator = () => {
 
     window.scroll({
       top: 0,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   };
 
   return (
-    <div className={s.paginator}>
-      <Pagination count={(count as number) || 0} page={page} onChange={handleChange} />
+    <div className={s.container}>
+      <Pagination
+        count={(count as number) || 0}
+        page={page}
+        onChange={handleChange}
+        className={s.paginator}
+      />
     </div>
   );
 };

@@ -1,5 +1,11 @@
-.paginator {
+.container {
   display: flex;
   justify-content: center;
   margin-top: 10px;
+}
+
+.paginator {
+  border-radius: 10px;
+  padding: 5px;
+  background-color: #f7f7f7;
 }

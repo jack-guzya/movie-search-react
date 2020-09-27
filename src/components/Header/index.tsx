@@ -24,6 +24,7 @@ const Header = () => {
     <>
       <div className={s.wrapper}>
         <div className={s.titleContainer}>
+          <div className={s.logo} />
           <h1>Movie Catalog</h1>
         </div>
 
@@ -33,7 +34,7 @@ const Header = () => {
 
         <div className={s.searchField}>
           <TextField label="Movie name" onChange={handleSearch} />
-        </div>        
+        </div>
       </div>
     </>
   );
