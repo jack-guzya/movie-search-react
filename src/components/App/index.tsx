@@ -3,12 +3,18 @@ import React from 'react';
 import Header from '../Header';
 import SearchInfo from '../SearchInfo';
 import MovieList from '../MovieList';
+import Paginator from '../Paginator';
+// Style
+import s from './App.module.css';
 
 const App = () => (
   <div>
     <Header />
-    <SearchInfo />
-    <MovieList />
+    <main className={s.main}>
+      <SearchInfo />
+      <MovieList />
+      <Paginator />
+    </main>
   </div>
 );
 
