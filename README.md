@@ -1,4 +1,4 @@
 # Movie Catalog
 
 ## Deploy
-https://jack-guzya.github.io/lodash-presentation/dist
+https://jack-guzya-movie-catalog.netlify.app/
