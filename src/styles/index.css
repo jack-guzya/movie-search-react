@@ -1,0 +1,9 @@
+@import './reset.css';
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  background-image: url(../assets/backround.png);
+  background-attachment: fixed;
+  background-position: center center;
+}

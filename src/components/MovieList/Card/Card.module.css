@@ -1,0 +1,20 @@
+.card {
+  width: 300px;
+  font-size: 20px;
+  background-color: #f3f3f3 !important;
+}
+
+.title {
+  margin-bottom: 20px;
+  min-height: 45px;
+  font-weight: 700;
+}
+
+.detail {
+  font-size: 0.8em;
+  margin-bottom: 10px;
+}
+
+.heading {
+  font-weight: 700;
+}

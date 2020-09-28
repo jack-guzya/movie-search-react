@@ -1,0 +1,15 @@
+.userName {
+  display: none;
+  overflow: hidden;
+  margin-left: 10px;
+  max-width: 150px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 1em;
+}
+
+@media screen and (min-width: 768px) {
+  .userName {
+    display: block !important;
+  }
+}
