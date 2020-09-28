@@ -9,15 +9,14 @@ import s from './Paginator.module.css';
 
 const Paginator = () => {
   const count = useSelector(selectors.getCountPages);
-  const [page, setPage] = React.useState(1);
+  const page = useSelector(selectors.getCurrentPage);
   const dispatch = useDispatch();
 
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
     if (value === page) {
       return;
     }
-
-    setPage(value);
+    
     dispatch(operations.selectPage(value));
 
     window.scroll({
@@ -30,7 +29,7 @@ const Paginator = () => {
     <div className={s.container}>
       <Pagination
         count={(count as number) || 0}
-        page={page}
+        page={page || 1}
         onChange={handleChange}
         className={s.paginator}
       />

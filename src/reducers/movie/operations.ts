@@ -28,6 +28,11 @@ export const searchMovie: TThunk<string> = (movieName) => async (dispatch, getSt
       message: `Your searched for: ${movieName}, ${totalResults} results found`,
     })
   );
+
+  window.scroll({
+    top: 0,
+    behavior: 'smooth',
+  });
 };
 
 export const selectPage: TThunk<number> = (page) => async (dispatch, getState) => {
