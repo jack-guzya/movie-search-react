@@ -1,12 +1,10 @@
 import React, { useState, Dispatch, SetStateAction } from 'react';
+// Material UI
 import { Button, TextField } from '@material-ui/core';
-
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-// Styles
-// import s from './Guest.module.css';
 
 type TGuestProps = {
   setUserName: Dispatch<SetStateAction<string | null>>;

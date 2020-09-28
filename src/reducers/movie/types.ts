@@ -1,8 +1,11 @@
+import { TDetailsResponse } from '../../services/omdbapi';
+
 export const SET_SEARCH_MOVIE_DATA = 'SET_SEARCH_MOVIE_DATA';
 export const SET_DATA_OF_PAGE = 'SET_DATA_OF_PAGE';
 export const SET_SERVICE_STATUS = 'SET_SERVICE_STATUS';
 export const SET_MESSAGE = 'SET_MESSAGE';
 export const SET_LOADING_STATUS = 'SET_LOADING_STATUS';
+export const SET_DETAILS = 'SET_DETAILS';
 
 export type TMovie = {
   Poster: string;
@@ -10,6 +13,16 @@ export type TMovie = {
   Type: string;
   Year: string;
   imdbID: string;
+};
+
+export type TDetails = {
+  imdbId: string | null;
+  data: TDetailsResponse | null;
+  isOpen: boolean;
+};
+
+export type Partial<T> = {
+  [K in keyof T]?: T[K];
 };
 
 export type TState = {
@@ -21,6 +34,11 @@ export type TState = {
   name: null | string;
   pages: null | number;
   movies: null | Array<TMovie>;
+  details: {
+    imdbId: string | null;
+    data: TDetailsResponse | null;
+    isOpen: boolean;
+  };
 };
 
 export type TSearchData = {
@@ -69,9 +87,15 @@ type TSetLoadingStatus = {
   };
 };
 
+type TSetDetails = {
+  type: typeof SET_DETAILS;
+  payload: Partial<TDetails>;
+};
+
 export type TAction =
   | TSetSearchMovieData
   | TSetServiceStatus
   | TSetMessage
   | TSetLoadingStatus
-  | TSetDataOfPage;
+  | TSetDataOfPage
+  | TSetDetails;

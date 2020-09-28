@@ -9,6 +9,11 @@ const initialState: types.TState = {
   movies: null,
   isLoading: false,
   isSearchError: false,
+  details: {
+    imdbId: null,
+    data: null,
+    isOpen: false,
+  },
 };
 
 const reducer = (state = initialState, action: types.TAction): types.TState => {
@@ -44,7 +49,7 @@ const reducer = (state = initialState, action: types.TAction): types.TState => {
         ...state,
         message: action.payload.message,
         isLoading: false,
-        isSearchError: action.payload.isErrorSearch
+        isSearchError: action.payload.isErrorSearch,
       };
 
     case types.SET_LOADING_STATUS:
@@ -52,6 +57,15 @@ const reducer = (state = initialState, action: types.TAction): types.TState => {
         ...state,
         isLoading: action.payload.status,
         serviceStatus: true,
+      };
+
+    case types.SET_DETAILS:
+      return {
+        ...state,
+        details: {
+          ...state.details,
+          ...action.payload,
+        },
       };
 
     default:

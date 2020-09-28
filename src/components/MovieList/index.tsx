@@ -10,7 +10,7 @@ const MovieList = () => {
   const movieList = useSelector(selectors.getMovies);
 
   return (
-    <section className={s.movieList}>
+    <section className={s.container}>
       <div className={s.wrapper}>
         {movieList &&
           movieList.map(({ Title, Year, Poster, imdbID, Type }) => (

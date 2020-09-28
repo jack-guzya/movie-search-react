@@ -25,7 +25,7 @@ const Header = () => {
       <div className={s.wrapper}>
         <div className={s.titleContainer}>
           <div className={s.logo} />
-          <h1>Movie Catalog</h1>
+          <h1 className={s.title}>Movie Catalog</h1>
         </div>
 
         <div className={s.signIn}>

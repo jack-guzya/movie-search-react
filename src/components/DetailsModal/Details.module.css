@@ -1,0 +1,26 @@
+.container {
+  font-size: 22px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+
+.poster {
+  margin-bottom: 20px;
+  height: 300px;
+}
+
+@media screen and (min-width: 768px) {
+  .poster {
+    height: 500px;
+  }
+}

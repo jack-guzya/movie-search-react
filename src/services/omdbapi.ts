@@ -37,8 +37,6 @@ export type TDetailsResponse = {
   imdbRating: string;
 };
 
-// export type TResponse = TDataResponse | TDetailsResponse;
-
 type TGetData = (input: string, page?: number) => Promise<TResponse<TDataResponse>>;
 
 type TGetMovieDetails = (id: string) => Promise<TResponse<TDetailsResponse>>;
@@ -67,7 +65,7 @@ class OmdbApiService {
 
   getData: TGetData = async (input, page = 1) => this.createRequest(`?s=${input}&page=${page}`);
 
-  getImdb: TGetMovieDetails = async (id) => this.createRequest(`?i=${id}`);
+  getDetails: TGetMovieDetails = async (id) => this.createRequest(`?i=${id}`);
 }
 
 export default OmdbApiService;

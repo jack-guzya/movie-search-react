@@ -31,3 +31,10 @@ export const setLoadingStatus = (status: boolean): types.TAction => ({
     status,
   },
 });
+
+export const setDetails = (details: types.Partial<types.TDetails>): types.TAction => ({
+  type: types.SET_DETAILS,
+  payload: {
+    ...details,
+  },
+});

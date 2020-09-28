@@ -1,17 +1,18 @@
 .header {
-  position: relative;
-  margin: 0 auto;
-  background-color: #f7f7f7;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  width: 100%;
+  background-color: #f7f7f7f5;
 }
 
 .loader {
-  position: absolute;
-  bottom: 45%;
   width: 100%;
 }
 
 .main {
   margin: 0 auto 20px;
+  padding-top: 100px;
   max-width: 1600px;
   width: 90%;
 }

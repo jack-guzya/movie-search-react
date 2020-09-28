@@ -9,11 +9,12 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 type TProps = {
   url: string;
   title: string;
+  className?: string | undefined;
 };
 
-const Poster: React.FC<TProps> = ({ url, title }) => {
+const Poster: React.FC<TProps> = ({ url, title, className }) => {
   const [isError, setErrorStatus] = useState(false);
-  const posterClass = classNames(s.poster, { [s.placeholder]: isError });
+  const posterClass = classNames(s.poster, className, { [s.placeholder]: isError });
 
   return (
     <div className={posterClass}>

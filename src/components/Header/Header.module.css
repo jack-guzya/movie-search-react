@@ -1,25 +1,28 @@
 .wrapper {
   display: grid;
-  grid-template-areas:
-    'title sign-in'
-    'search-field search-field';
-  grid-template-columns: 2fr 1fr;
+  grid-template-areas: "title search-field sign-in ";
+  grid-template-columns: 1fr 2fr 1fr;
+  border-bottom: 2px solid;
   padding: 5px;
   font-size: 16px;
 }
 
+.signIn,
+.titleContainer,
+.searchField {
+  align-self: center;
+}
+
 .signIn {
   grid-area: sign-in;
-  text-align: right;
+  justify-self: right;
   padding: 10px;
-  border-bottom: 2px solid;
 }
 
 .searchField {
   grid-area: search-field;
-  align-self: center;
   margin-top: 10px;
-  text-align: center;
+  justify-self: center;
 }
 
 .titleContainer {
@@ -27,7 +30,6 @@
   display: flex;
   align-items: center;
   padding: 10px;
-  border-bottom: 2px solid;
   text-align: center;
   font-size: 1.5em;
 }
@@ -42,18 +44,17 @@
   background-position: center;
 }
 
+.title {
+  display: none;
+}
+
 @media screen and (min-width: 768px) {
   .wrapper {
-    grid-template-areas: 'title search-field sign-in';
-    grid-template-columns: 1fr 1fr 1fr;
-    border-bottom: 2px solid;
     padding: 5px;
     font-size: 16px;
   }
 
-  .signIn,
-  .titleContainer {
-    border-bottom: none;
-    align-self: center;
+  .title {
+    display: block;
   }
 }

@@ -5,7 +5,7 @@ import Pagination from '@material-ui/lab/Pagination';
 // Reducer
 import { selectors, operations } from '../../reducers/movie';
 // Style
-import s from './Painator.module.css';
+import s from './Paginator.module.css';
 
 const Paginator = () => {
   const count = useSelector(selectors.getCountPages);

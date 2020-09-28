@@ -7,8 +7,6 @@ import Collapse from '@material-ui/core/Collapse';
 import CloseIcon from '@material-ui/icons/Close';
 // Reducer
 import { selectors } from '../../reducers/movie';
-// Styles
-import s from './SearchInfo.module.css';
 
 const SearchInfo = () => {
   const message = useSelector(selectors.getMessage);
@@ -22,7 +20,7 @@ const SearchInfo = () => {
   }, [message]);
 
   return (
-    <Collapse className={s.searchInfo} in={open}>
+    <Collapse in={open}>
       <Alert
         severity={error ? 'error' : 'success'}
         action={

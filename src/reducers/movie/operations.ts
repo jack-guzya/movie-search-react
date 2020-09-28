@@ -48,3 +48,25 @@ export const selectPage: TThunk<number> = (page) => async (dispatch, getState) =
     })
   );
 };
+
+export const showDetails: TThunk<string> = (imdbId) => async (dispatch, getState) => {
+  const { movie } = getState();
+  if (movie.details.imdbId === imdbId) {
+    dispatch(actions.setDetails({ isOpen: true }));
+    return;
+  }
+
+  const details = await utils.handleRequest(dispatch, () => api.getDetails(imdbId));
+  if (!details) {
+    return;
+  }
+
+  dispatch(
+    actions.setDetails({
+      imdbId,
+      isOpen: true,
+      data: details,
+    })
+  );
+  dispatch(actions.setLoadingStatus(false));
+};
