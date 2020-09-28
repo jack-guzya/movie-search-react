@@ -21,7 +21,7 @@ type TProps = {
 const MovieCard: React.FC<TProps> = ({ title, year, imdb, type, media }) => {
   return (
     <Card className={s.card} variant="outlined">
-      <CardActionArea>
+      <CardActionArea href={`https://www.imdb.com/title/${imdb}/videogallery`} target="_blank">
         <Poster url={media} title={title} />
         <CardContent>
           <h2 className={s.title}>{title}</h2>
