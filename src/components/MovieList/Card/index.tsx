@@ -10,7 +10,7 @@ import Button from '@material-ui/core/Button';
 import Poster from '../../common/Poster';
 import Details from '../../common/Details';
 // Reducer
-import { actions, operations } from '../../../reducers/movie';
+import { operations } from '../../../reducers/movie';
 // Style
 import s from './Card.module.css';
 
